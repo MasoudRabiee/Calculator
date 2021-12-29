@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
 
@@ -59,6 +58,22 @@ class MainActivity : AppCompatActivity() {
             }
             text_display.text = result.toString()
             clearFlag = true
+        }
+
+        // percent Button :
+        btn_percent.setOnClickListener {
+            val result = text_display.text.toString().toDouble() / 100
+            text_display.text = result.toString()
+        }
+
+        // clear Button :
+        btn_clear.setOnClickListener {
+            clearTextDisplay()
+            firstNumber = 0.0
+            secondNumber = 0.0
+            operation = ""
+            clearFlag = true
+            dotFlag = false
         }
 
     }
