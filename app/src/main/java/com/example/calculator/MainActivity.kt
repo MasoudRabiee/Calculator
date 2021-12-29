@@ -5,9 +5,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
 
+    private var firstNumber: Double = 0.0
+    private lateinit var operation: String
+    private var secondNumber: Double = 0.0
+    private var clearFlag = true
     private var dotFlag = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,11 +32,44 @@ class MainActivity : AppCompatActivity() {
         btn_0.setOnClickListener(digitListener)
         btn_dot.setOnClickListener(digitListener)
         btn_sign.setOnClickListener(digitListener)
+
+        // operation Buttons :
+        btn_divide.setOnClickListener(operatorListener)
+        btn_multiplication.setOnClickListener(operatorListener)
+        btn_minus.setOnClickListener(operatorListener)
+        btn_add.setOnClickListener(operatorListener)
+
+        // equal Button :
+        btn_equal.setOnClickListener {
+            secondNumber = text_display.text.toString().toDouble()
+            var result: Double? = null
+            when (operation) {
+                "/" -> {
+                    result = firstNumber / secondNumber
+                }
+                "*" -> {
+                    result = firstNumber * secondNumber
+                }
+                "-" -> {
+                    result = firstNumber - secondNumber
+                }
+                "+" -> {
+                    result = firstNumber + secondNumber
+                }
+            }
+            text_display.text = result.toString()
+            clearFlag = true
+        }
+
     }
 
 
     private val digitListener = View.OnClickListener {
         it as Button
+        if (clearFlag) {
+            clearTextDisplay()
+        }
+        clearFlag = false
         val oldNumber = text_display.text.toString()
         when (it.id) {
             btn_dot.id -> {
@@ -56,6 +94,30 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private val operatorListener = View.OnClickListener {
+        it as Button
+        when (it.id) {
+            btn_divide.id -> {
+                operation = "/"
+            }
+            btn_multiplication.id -> {
+                operation = "*"
+            }
+            btn_minus.id -> {
+                operation = "-"
+            }
+            btn_add.id -> {
+                operation = "+"
+            }
+        }
+        firstNumber = text_display.text.toString().toDouble()
+        clearFlag = true
+    }
+
+    private fun clearTextDisplay() {
+        text_display.text = "0"
     }
 }
 
