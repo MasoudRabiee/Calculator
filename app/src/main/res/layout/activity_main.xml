@@ -30,18 +30,22 @@
         <TableRow style="@style/style_table_row">
 
             <Button
+                android:id="@+id/btn_clear"
                 style="@style/btn_operation"
                 android:text="C" />
 
             <Button
+                android:id="@+id/btn_sign"
                 style="@style/btn_operation"
                 android:text="+/-" />
 
             <Button
+                android:id="@+id/btn_percent"
                 style="@style/btn_operation"
                 android:text="%" />
 
             <Button
+                android:id="@+id/btn_divide"
                 style="@style/btn_operation"
                 android:text="/" />
         </TableRow>
@@ -49,18 +53,22 @@
         <TableRow style="@style/style_table_row">
 
             <Button
+                android:id="@+id/btn_7"
                 style="@style/btn_default"
                 android:text="7" />
 
             <Button
+                android:id="@+id/btn_8"
                 style="@style/btn_default"
                 android:text="8" />
 
             <Button
+                android:id="@+id/btn_9"
                 style="@style/btn_default"
                 android:text="9" />
 
             <Button
+                android:id="@+id/btn_multiplication"
                 style="@style/btn_operation"
                 android:text="*" />
 
@@ -69,18 +77,22 @@
         <TableRow style="@style/style_table_row">
 
             <Button
+                android:id="@+id/btn_4"
                 style="@style/btn_default"
                 android:text="4" />
 
             <Button
+                android:id="@+id/btn_5"
                 style="@style/btn_default"
                 android:text="5" />
 
             <Button
+                android:id="@+id/btn_6"
                 style="@style/btn_default"
                 android:text="6" />
 
             <Button
+                android:id="@+id/btn_minus"
                 style="@style/btn_operation"
                 android:text="-" />
         </TableRow>
@@ -88,18 +100,22 @@
         <TableRow style="@style/style_table_row">
 
             <Button
+                android:id="@+id/btn_1"
                 style="@style/btn_default"
                 android:text="1" />
 
             <Button
+                android:id="@+id/btn_2"
                 style="@style/btn_default"
                 android:text="2" />
 
             <Button
+                android:id="@+id/btn_3"
                 style="@style/btn_default"
                 android:text="3" />
 
             <Button
+                android:id="@+id/btn_add"
                 style="@style/btn_operation"
                 android:text="+" />
         </TableRow>
@@ -113,17 +129,17 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btn_0"
             style="@style/btn_zero"
             android:text="0" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_dot"
             style="@style/btn_default"
             android:text="." />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_equal"
             style="@style/btn_operation"
             android:text="=" />
     </LinearLayout>
