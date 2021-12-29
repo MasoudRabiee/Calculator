@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/text_display"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:autofillHints="inter"
+        android:inputType="textPersonName"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:text="0"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:textSize="26sp" />
+
+    <TableLayout
+        android:background="#B6B6B6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4">
+
+        <TableRow style="@style/style_table_row">
+
+            <Button
+                style="@style/btn_operation"
+                android:text="C" />
+
+            <Button
+                style="@style/btn_operation"
+                android:text="+/-" />
+
+            <Button
+                style="@style/btn_operation"
+                android:text="%" />
+
+            <Button
+                style="@style/btn_operation"
+                android:text="/" />
+        </TableRow>
+
+        <TableRow style="@style/style_table_row">
+
+            <Button
+                style="@style/btn_default"
+                android:text="7" />
+
+            <Button
+                style="@style/btn_default"
+                android:text="8" />
+
+            <Button
+                style="@style/btn_default"
+                android:text="9" />
+
+            <Button
+                style="@style/btn_operation"
+                android:text="*" />
+
+        </TableRow>
+
+        <TableRow style="@style/style_table_row">
+
+            <Button
+                style="@style/btn_default"
+                android:text="4" />
+
+            <Button
+                style="@style/btn_default"
+                android:text="5" />
+
+            <Button
+                style="@style/btn_default"
+                android:text="6" />
+
+            <Button
+                style="@style/btn_operation"
+                android:text="-" />
+        </TableRow>
+
+        <TableRow style="@style/style_table_row">
+
+            <Button
+                style="@style/btn_default"
+                android:text="1" />
+
+            <Button
+                style="@style/btn_default"
+                android:text="2" />
+
+            <Button
+                style="@style/btn_default"
+                android:text="3" />
+
+            <Button
+                style="@style/btn_operation"
+                android:text="+" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:background="#B6B6B6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button3"
+            style="@style/btn_zero"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/button"
+            style="@style/btn_default"
+            android:text="." />
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/btn_operation"
+            android:text="=" />
+    </LinearLayout>
+</LinearLayout>
