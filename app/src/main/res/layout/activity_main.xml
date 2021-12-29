@@ -7,13 +7,13 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <EditText
+    <TextView
         android:id="@+id/text_display"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:autofillHints="inter"
-        android:inputType="textPersonName"
+        android:gravity="center_vertical"
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
         android:text="0"

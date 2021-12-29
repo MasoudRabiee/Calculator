@@ -33,27 +33,25 @@ class MainActivity : AppCompatActivity() {
     private val digitListener = View.OnClickListener {
         it as Button
         val oldNumber = text_display.text.toString()
-        when(it.id){
+        when (it.id) {
             btn_dot.id -> {
-                if (!dotFlag){
+                if (!dotFlag) {
                     text_display.append(".")
                     dotFlag = true
                 }
             }
             btn_sign.id -> {
-                if (oldNumber.first() == '-'){
+                if (oldNumber.first() == '-') {
                     val newNumber = oldNumber.drop(1)
-                    text_display.setText(newNumber)
-                }
-                else if (oldNumber != "0" && oldNumber.isNotEmpty()){
-                    text_display.setText("-$oldNumber")
+                    text_display.text = newNumber
+                } else if (oldNumber != "0" && oldNumber.isNotEmpty()) {
+                    text_display.text = "-$oldNumber"
                 }
             }
-            else ->{
-                if (oldNumber == "0" || oldNumber.isEmpty()){
-                    text_display.setText(it.text)
-                }
-                else{
+            else -> {
+                if (oldNumber == "0" || oldNumber.isEmpty()) {
+                    text_display.text = it.text
+                } else {
                     text_display.append(it.text)
                 }
             }
