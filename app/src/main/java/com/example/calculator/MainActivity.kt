@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
     private var operation: String = ""
     private var secondNumber: Double? = null
     private var clearFlag = true
-    private var dotFlag = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +55,6 @@ class MainActivity : AppCompatActivity() {
             secondNumber = null
             operation = ""
             clearFlag = true
-            dotFlag = false
         }
 
     }
@@ -71,9 +69,8 @@ class MainActivity : AppCompatActivity() {
         val oldNumber = text_display.text.toString()
         when (it.id) {
             btn_dot.id -> {
-                if (!dotFlag) {
+                if (!oldNumber.contains(".")) {
                     text_display.append(".")
-                    dotFlag = true
                 }
             }
             btn_sign.id -> {
