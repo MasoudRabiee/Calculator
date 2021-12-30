@@ -9,8 +9,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private var firstNumber: Double = 0.0
-    private lateinit var operation: String
-    private var secondNumber: Double = 0.0
+    private var operation: String = ""
+    private var secondNumber: Double? = null
     private var clearFlag = true
     private var dotFlag = false
 
@@ -40,24 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         // equal Button :
         btn_equal.setOnClickListener {
-            secondNumber = text_display.text.toString().toDouble()
-            var result: Double? = null
-            when (operation) {
-                "/" -> {
-                    result = firstNumber / secondNumber
-                }
-                "*" -> {
-                    result = firstNumber * secondNumber
-                }
-                "-" -> {
-                    result = firstNumber - secondNumber
-                }
-                "+" -> {
-                    result = firstNumber + secondNumber
-                }
-            }
-            text_display.text = result.toString()
-            clearFlag = true
+            execute()
         }
 
         // percent Button :
@@ -70,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         btn_clear.setOnClickListener {
             clearTextDisplay()
             firstNumber = 0.0
-            secondNumber = 0.0
+            secondNumber = null
             operation = ""
             clearFlag = true
             dotFlag = false
@@ -128,11 +111,43 @@ class MainActivity : AppCompatActivity() {
             }
         }
         firstNumber = text_display.text.toString().toDouble()
+        secondNumber = null
         clearFlag = true
     }
 
     private fun clearTextDisplay() {
         text_display.text = "0"
+    }
+
+    private fun execute(){
+        if (operation != "") {
+            val second : Double = if (secondNumber == null){
+                text_display.text.toString().toDouble()
+            } else {
+                secondNumber as Double
+            }
+            var result: Double? = null
+            when (operation) {
+                "/" -> {
+                    result = firstNumber / second
+                }
+                "*" -> {
+                    result = firstNumber * second
+                }
+                "-" -> {
+                    result = firstNumber - second
+                }
+                "+" -> {
+                    result = firstNumber + second
+                }
+            }
+            text_display.text = result.toString()
+            secondNumber = second
+            if (result != null) {
+                firstNumber = result
+            }
+            clearFlag = true
+        }
     }
 }
 
